@@ -5,10 +5,11 @@ import SearchBox from "../SearchBox/SearchBox";
 import css from "./App.module.css";
 import { useEffect } from "react";
 import { fetchContacts } from "../../redux/contactsOps";
+import { selectError, selectLoading } from "../../redux/contactsSlice";
 
 export default function App() {
-  const loading = useSelector((state) => state.contacts.loading);
-  const error = useSelector((state) => state.contacts.error);
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
   const dispatch = useDispatch();
 
   useEffect(() => {
